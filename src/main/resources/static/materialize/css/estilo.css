@@ -1,0 +1,117 @@
+@charset "utf-8";
+
+.cabecalho {
+	background-color: #FCFCFC;
+	height: 62px;
+	margin: 0px 0px 8px 0px;
+	text-align: center;
+}
+
+div#areaPesquisa {
+	position: relative;
+	top: 12px;
+	text-decoration: none;
+}
+
+input#pesquisa {
+	position: relative;
+	width: 30%;
+	height: 33px;
+	outline: none;
+	left: 9%;
+	border-radius: 50px 50px 50px 50px;
+}
+
+button#procuarArtista {
+	position: relative;
+	width: 2.8%;
+	height: 28px;
+	left: 5.3%;
+	right: 3.5%;
+	background: white;
+	border-radius: 100px 100px 100px 100px;
+	border: none;
+}
+
+a#cadastroElogin {
+	position: relative;
+	left: 16%;
+	border-radius: 100px 100px 100px 100px;
+}
+
+div#loginUsuario {
+	position: relative;
+	width: 30%;
+	height: 33px;
+}
+
+div#cadastroUsuario {
+	position: relative;
+	width: 40%;
+	height: 33px;
+}
+nav {
+	position: relative;
+	background-color: #1D94CA;
+	height: 58px;
+}
+
+ul {
+	position: relative;
+	right:30%;
+	bottom: 5%;
+	
+}
+
+h4 {
+	position: relative;
+	font-size: 200%;
+}
+
+.striped {
+	position: relative;
+	left: 30%;
+	top:10px;
+	width: 40%;
+	height: 40%;
+}
+
+div#cadastro {
+	position: relative;
+	width: 40%;
+	height: 33px;
+}
+
+.card {
+	display: inline-block;
+	width: 30%;
+	height: 40%;
+}
+
+img {
+	max-width:400px;
+    max-height:400px;
+    width: auto;
+    height: auto;
+}
+
+i#favorito {
+	color: red;
+}
+
+
+div#classificacaoEUltimaMusicaArtista{
+	display: inline-block;
+	position: relative;
+	left: 10%;
+}
+
+
+
+
+
+
+
+
+
+

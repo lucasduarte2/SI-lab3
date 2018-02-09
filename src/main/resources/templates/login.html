@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head xmlns:th="http://thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<meta charset="utf-8" />
+<title>SI-LAB02</title>
+
+<!-- caminho para o angular -->
+<script src="materialize/js/angular.min.js"></script>
+<script src="materialize/js/controller.js"></script>
+
+<link type="text/css" rel="stylesheet"
+	href="materialize/css/materialize.min.css" media="screen,projection" />
+<!-- link para usar os icons -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet" />
+<!-- link para usar os o css -->
+<link type="text/css" rel="stylesheet" href="materialize/css/estilo.css" />
+</head>
+<body>
+
+	<div class="cabecalho">
+		<div class="row">
+			<form class="col s12">
+				<div class="row">
+					<div id="areaPesquisa" class="input col s12">
+						<input id="pesquisa" type="text" class="browser-default" value=""
+							name="nomeArtista" required="required" />
+						<button id="procuarArtista" type="submit"
+							class="waves-effect waves-teal btn-flutuante">
+							<i class="material-icons">search</i>
+						</button>
+						<a id="cadastroElogin"
+							class="waves-effect waves-light btn modal-trigger"
+							href="/spotify">Cadastrar</a> <a id="cadastroElogin"
+							class="waves-effect waves-light btn modal-trigger" href="/login">Login</a>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+
+
+
+	<div class="row" id="loginUsuario">
+		<form class="col s12" action="login" method="post">
+			<div class="row">
+				<div class="input-field col s12">
+					<input id="emailUsuario" type="text" class="validate" value=""
+						name='username' required="required"/> <label data-error="wrong">Email</label>
+				</div>
+			</div>
+			<div class="row">
+				<div class="input-field col s12">
+					<input id="senhaUsuario" type="text" class="validate" value=""
+						name='password' required="required"/> <label data-error="wrong">Senha</label>
+				</div>
+			</div>
+			<div class="row">
+				<button type="submit" class="btn btn-primary">Entrar</button>
+			</div>
+		</form>
+	</div>
+
+
+</body>
+<script type="text/javascript"
+	src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+<script type="text/javascript" src="materialize/js/estilos.js"></script>
+</html>
