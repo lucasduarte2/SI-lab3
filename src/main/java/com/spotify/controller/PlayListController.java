@@ -25,6 +25,12 @@ public class PlayListController {
 		return "redirect:/playList";
 	}
 	
+	@RequestMapping("/deletarPlayList")
+	public String deletaPlayList(long idPlayList) {
+		deletaPlayList2(idPlayList);
+		return "redirect:/playList";
+	}
+	
 	@RequestMapping(value = "/playList", method = RequestMethod.GET)
 	public ModelAndView listaPlayList() {
 		return playListService.listaPlayList();
@@ -35,6 +41,29 @@ public class PlayListController {
 		return playListService.detalhesPlayList(idPlayList);
 	}
 	
+	
+	@RequestMapping(value = "playList/{idPlayList}", method = RequestMethod.POST)
+	public String formAddMusicaNaPlayList(@PathVariable("idPlayList") long idPlayList, Musica novaMusica) {
+		addMusicaNaPlayList(idPlayList, novaMusica);
+		return "redirect:/playList/{idPlayList}";
+	}
+	
+	@RequestMapping("/deletarMusicaDaPlayList")
+	public String deletaMusicaDaPlayList(String musica){
+		PlayList playList = playListService.deletaMusicaDaPlayList(musica);
+		return "redirect:/playList/" + playList.getIdPlayList();
+	}
+	
+	
+	public ResponseEntity<Object> deletaPlayList2(long idPlayList) {
+		PlayList playList = playListService.deletaPlayList(idPlayList);
+		if(playList == null){
+			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+		}
+		return new ResponseEntity<>(playList, HttpStatus.OK);
+	}
+	
+	
 	public ResponseEntity<Object> addPlayList(PlayList novaPlayList) {
 		PlayList playList = playListService.addPlayList(novaPlayList);
 		if(playList == null || novaPlayList.getNomePlayList().trim().isEmpty()){
@@ -43,22 +72,16 @@ public class PlayListController {
 		return new ResponseEntity<>(playList, HttpStatus.CREATED);
 		
 	}
-	
 
-//	@RequestMapping(value = "playList/{idPlayList}", method = RequestMethod.POST)
-//	public String formAddMusicaNaPlayList(@PathVariable("idPlayList") long idPlayList, Musica novaMusica) {
-//		addMusicaNaPlayList(idPlayList, novaMusica);
-//		return "redirect:/playList/{idPlayList}";
-//	}
-//	
-//	public ResponseEntity<Object> addMusicaNaPlayList(@PathVariable("idPlayList") long idPlayList, Musica novaMusica) {
-//		PlayList playList = playListService.addMusicaNaPlayList(idPlayList, novaMusica);
-//		if(playList == null){
-//			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
-//		}
-//		return new ResponseEntity<>(playList, HttpStatus.CREATED);
-//		
-//	}
+	
+	public ResponseEntity<Object> addMusicaNaPlayList(@PathVariable("idPlayList") long idPlayList, Musica novaMusica) {
+		PlayList playList = playListService.addMusicaNaPlayList(idPlayList, novaMusica);
+		if(playList == null){
+			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+		}
+		return new ResponseEntity<>(playList, HttpStatus.CREATED);
+		
+	}
 		
 
 }

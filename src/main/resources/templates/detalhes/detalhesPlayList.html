@@ -21,23 +21,8 @@
 <body>
 
 	<div class="cabecalho">
-		<div class="row">
-			<form class="col s12" method="post">
-				<div class="row">
-					<div id="areaPesquisa" class="input col s12">
-						<input id="pesquisa" type="text" class="browser-default" value=""
-							name="nomeArtista" required="" />
-						<button id="procuarArtista" type="submit"
-							class="waves-effect waves-teal btn-flutuante">
-							<i class="material-icons">search</i>
-						</button>
-						<a id="cadastroElogin"
-							class="waves-effect waves-light btn modal-trigger" href="/logout">Sair</a>
-
-					</div>
-				</div>
-			</form>
-		</div>
+		<a id="sair" class="waves-effect waves-light btn modal-trigger"
+			href="/logout">Sair</a>
 	</div>
 
 	<ul id="dropdown1" class="dropdown-content">
@@ -59,8 +44,8 @@
 		<form class="col s12" method="post">
 			<div class="input-field col s12" id="addMusicaNaPlayList">
 				<input type="text" class="validate" value="" name="nomeMusica"
-					required="required" /> <label data-error="wrong">Nome Da
-					Musica</label>
+					required="required" /> <label data-error="nome da musica invalido">Nome
+					Da Musica</label>
 			</div>
 
 			<button id="botaoAddMusicaNaPlayList" type="submit"
@@ -73,7 +58,13 @@
 
 	<table class="striped" th:each="playList : ${playList}">
 		<tbody>
-			<span th:text="${playList.nomePlayList}"> </span>
+			<tr th:each=" musica : ${playList.musicas}">
+				<td><span th:text="${musica.nomeMusica}"> </span> <a
+					id="deletar" class="waves-effect waves-light btn-small"
+					th:href="${(#mvc.url('PLC#deletaMusicaDaPlayList').arg(0, musica.nomeMusica)).build()}">
+						<i class="material-icons">delete_forever</i>
+				</a></td>
+			</tr>
 		</tbody>
 	</table>
 

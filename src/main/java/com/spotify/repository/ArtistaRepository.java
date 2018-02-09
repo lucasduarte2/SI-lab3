@@ -12,5 +12,6 @@ public interface ArtistaRepository extends CrudRepository<Artista, String> {
 	List<Artista> findAllByNomeArtistaIgnoreCaseContaining(String nomeArtista);
 	List<Artista> findAllByEmailUsuario(String emailArtista);
 	Artista findByNomeArtista(String nomeArtista);
+	List<Artista> findByEmailUsuario(String retornaUserName);
 
 }

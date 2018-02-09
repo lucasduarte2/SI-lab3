@@ -18,6 +18,15 @@ public class ArtistaController {
 	@Autowired
 	private ArtistaService artistaService;
 
+	@RequestMapping(value = { "/paginaInicial"}, method = RequestMethod.POST)
+	public String pesquisarArtista(Artista artista) {
+		Artista artistaEncontrado = artistaService.pesquisarArtista(artista);
+		if(artistaEncontrado == null){
+			return "redirect:/paginaInicial";
+		}
+		return "redirect:/artista/" + artistaEncontrado.getId();
+	}
+	
 	@RequestMapping(value = "/cadastroArtista", method = RequestMethod.POST)
 	public String formAddArtista(Artista novoArtista) {
 		addArtista(novoArtista);
@@ -46,11 +55,6 @@ public class ArtistaController {
 		return "redirect:/paginaInicial";
 	}
 
-	@RequestMapping(value = { "/paginaInicial" }, method = RequestMethod.POST)
-	public String pesquisarArtista(Artista artista) {
-		Artista artistaEncontrado = artistaService.pesquisarArtista(artista);
-		return "redirect:/artista/" + artistaEncontrado.getNomeArtista();
-	}
 
 	public ResponseEntity<Object> addArtista(Artista novoArtista) {
 		Artista artista = artistaService.addArtista(novoArtista);

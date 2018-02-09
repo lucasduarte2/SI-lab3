@@ -84,8 +84,14 @@ public class ArtistaService {
 	}
 
 	public Artista pesquisarArtista(Artista artista) {
-		Artista artistaExistente = artistaRepository.findByNomeArtista(artista.getNomeArtista());
-		return artistaExistente;
+		List<Artista> artistasExistente = artistaRepository.findByEmailUsuario(retornaUserName());
+		Artista artista2 = null;
+		for (Artista artista3 : artistasExistente) {
+			if(artista3.getNomeArtista().equals(artista.getNomeArtista())){
+				artista2 = artista3;
+			}
+		}
+		return artista2;
 	}
 
 	public Artista addAlbumAoArtista(Album album, String nomeArtista) {

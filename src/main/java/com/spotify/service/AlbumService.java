@@ -23,9 +23,6 @@ public class AlbumService {
 
 	@Autowired
 	private ArtistaService artistaService;
-	
-	@Autowired
-	private MusicaService musicaService;
 
 	private String retornaIdUsuario() {
 		Object usuarioLogado = SecurityContextHolder.getContext().getAuthentication().getPrincipal();

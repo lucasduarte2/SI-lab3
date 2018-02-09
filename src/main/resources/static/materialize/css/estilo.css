@@ -20,6 +20,7 @@ input#pesquisa {
 	outline: none;
 	left: 9%;
 	border-radius: 50px 50px 50px 50px;
+	text-align: center;
 }
 
 button#procuarArtista {
@@ -31,6 +32,13 @@ button#procuarArtista {
 	background: white;
 	border-radius: 100px 100px 100px 100px;
 	border: none;
+}
+
+a#sair {
+	position: relative;
+	left: 31.6%;
+	top: 12px;
+	border-radius: 100px 100px 100px 100px;
 }
 
 a#cadastroElogin {
@@ -50,6 +58,7 @@ div#cadastroUsuario {
 	width: 40%;
 	height: 33px;
 }
+
 nav {
 	position: relative;
 	background-color: #1D94CA;
@@ -58,9 +67,8 @@ nav {
 
 ul {
 	position: relative;
-	right:30%;
+	right: 30%;
 	bottom: 5%;
-	
 }
 
 h4 {
@@ -71,7 +79,7 @@ h4 {
 .striped {
 	position: relative;
 	left: 30%;
-	top:10px;
+	top: 10px;
 	width: 40%;
 	height: 40%;
 }
@@ -89,29 +97,24 @@ div#cadastro {
 }
 
 img {
-	max-width:400px;
-    max-height:400px;
-    width: auto;
-    height: auto;
+	max-width: 400px;
+	max-height: 400px;
+	width: auto;
+	height: auto;
 }
 
 i#favorito {
 	color: red;
 }
 
-
-div#classificacaoEUltimaMusicaArtista{
+div#classificacaoEUltimaMusicaArtista {
 	display: inline-block;
 	position: relative;
 	left: 10%;
 }
 
-
-
-
-
-
-
-
-
-
+a#deletar {
+	position:relative;
+	left: 50%;
+	color: red;
+}

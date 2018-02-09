@@ -30,20 +30,5 @@ public class UsuarioController {
 		}
 		return new ResponseEntity<>(usuario, HttpStatus.CREATED);
 	}
-	
-//	@RequestMapping(value = "/login", method = RequestMethod.POST)
-//	public void formLoginUsuario(Usuario novoUsuario){
-//		logarUsuario(novoUsuario);
-//		//return "redirect:/paginaInicial";
-//	}
-//	
-//	public ResponseEntity<Usuario> logarUsuario(Usuario usuario) {
-//		Usuario usuario2 = usuarioService.logarUsuario(usuario);
-//		if (usuario2 == null) {
-//			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
-//		}
-//		return new ResponseEntity<>(usuario, HttpStatus.OK);
-//	}
-//
 
 }

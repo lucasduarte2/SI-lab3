@@ -21,7 +21,11 @@ public class PlayListService {
 	private PlayListRepository playListRepository;
 	
 	@Autowired
+	private MusicaService musicaService;
+	
+	@Autowired
 	private MusicaRepository musicaRepository;
+
 	
 	private String retornaUserName() {
 		Object usuarioLogado = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -43,6 +47,12 @@ public class PlayListService {
 		}
 		return playList;
 		
+	}
+	
+	public PlayList deletaPlayList(long idPlayList) {
+		PlayList playList = playListRepository.findByIdPlayList(idPlayList);
+		playListRepository.delete(playList);
+		return playList;
 	}
 	
 	
@@ -71,19 +81,46 @@ public class PlayListService {
 		return playListEncontrada;
 	}
 	
-//	public PlayList addMusicaNaPlayList(@PathVariable("idPlayList") long idPlayList, Musica novaMusica){
-//		PlayList playList = playListRepository.findByIdPlayList(idPlayList);
-		//olhar isso, pois tem q pegar a musica do usuario
-//		Musica musica = musicaRepository.findByNomeMusica(novaMusica.getNomeMusica());
-//		List<Musica> musicasUsuario = playList.getMusicas();
-//		if(!musicasUsuario.contains(musica)){
-//			musicasUsuario.add(musica);
-//		}
-//		
-//		playList.setMusicas(musicasUsuario);
-//		
-//		return playListRepository.save(playList);
-//		
-//	}
+	public PlayList addMusicaNaPlayList(@PathVariable("idPlayList") long idPlayList, Musica novaMusica){
+		PlayList playList = playListRepository.findByIdPlayList(idPlayList);
+		Musica musica = musicaService.procurarMusica(novaMusica, retornaUserName());
+		List<Musica> musicasDaPlayListDoUsuario = playList.getMusicas();
+		if(!musicasDaPlayListDoUsuario.contains(musica)){
+			musicasDaPlayListDoUsuario.add(musica);
+			musica.setPlayList(playList);
+			musicaRepository.save(musica);
+		}
+		playList.setMusicas(musicasDaPlayListDoUsuario);
+		return playListRepository.save(playList);
+	}
+	
+	
+	
+	public PlayList deletaMusicaDaPlayList(String musica) {
+		Musica musica2 = musicaService.procurarMusica2(musica, retornaUserName());
+		PlayList playList = playListRepository.findByIdPlayList(musica2.getPlayList().getIdPlayList());
+		List<Musica> musicasDaPlayListDoUsuario = playList.getMusicas();
+		musicasDaPlayListDoUsuario.remove(musica2);
+		playList.setMusicas(musicasDaPlayListDoUsuario);
+		musica2.setPlayList(null);
+		musicaRepository.save(musica2);
+		return playListRepository.save(playList);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 }

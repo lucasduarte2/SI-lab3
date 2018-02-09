@@ -14,13 +14,26 @@ public class MusicaService {
 	@Autowired
 	private MusicaRepository musicaRepository;
 	
-	public Musica addMusica(Musica novaMusica, String username){
-		List<Musica> musicas = musicaRepository.findByEmailUsuario(username);
-		if(musicas.contains(novaMusica)){
-			return musicaRepository.save(novaMusica);
+	public Musica procurarMusica(Musica musica, String userName){
+		List<Musica> musicas = musicaRepository.findByEmailUsuario(userName);
+		Musica musicaAchada = null;
+		for (Musica musica2 : musicas) {
+			if(musica2.getNomeMusica().equals(musica.getNomeMusica())){
+				musicaAchada = musica2;
+			}
 		}
-		return null;
+		return musicaAchada;
 		
 	}
 
+	public Musica procurarMusica2(String musica, String userName) {
+		List<Musica> musicas = musicaRepository.findByEmailUsuario(userName);
+		Musica musicaAchada = null;
+		for (Musica musica2 : musicas) {
+			if(musica2.getNomeMusica().equals(musica)){
+				musicaAchada = musica2;
+			}
+		}
+		return musicaAchada;
+	}
 }

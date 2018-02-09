@@ -4,9 +4,6 @@
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <meta charset="utf-8" />
 <title>SI-LAB02</title>
-<!-- caminho para o angular -->
-<script src="materialize/js/angular.min.js"></script>
-<script src="materialize/js/controller.js"></script>
 
 <link type="text/css" rel="stylesheet"
 	href="materialize/css/materialize.min.css" media="screen,projection" />
@@ -19,22 +16,8 @@
 <body>
 
 	<div class="cabecalho">
-		<div class="row">
-			<form class="col s12" method="post">
-				<div class="row">
-					<div id="areaPesquisa" class="input col s12">
-						<input id="pesquisa" type="text" class="browser-default" value=""
-							name="nomeArtista" required="required" />
-						<button id="procuarArtista" type="submit"
-							class="waves-effect waves-teal btn-flutuante">
-							<i class="material-icons">search</i>
-						</button>
-						<a id="cadastroElogin"
-							class="waves-effect waves-light btn modal-trigger" href="/logout">Sair</a>
-					</div>
-				</div>
-			</form>
-		</div>
+		<a id="sair"
+			class="waves-effect waves-light btn modal-trigger" href="/logout">Sair</a>
 	</div>
 
 	<ul id="dropdown1" class="dropdown-content">
@@ -62,18 +45,21 @@
 					data-error="nome artista invalido">Nome Do Artista</label>
 			</div>
 			<div class="input-field col s12">
-				<input id="link" type="text" value="" name="linkDaImagem"/> <label>Link
+				<input id="link" type="text" value="" name="linkDaImagem" /> <label>Link
 					Para a Imagem Do Artista</label>
 			</div>
-			<button type="submit"
+			<button type="submit" 
 				onclick="Materialize.toast('Artista Cadastrado Com Sucesso', 4000,'green rounded')"
-				class="btn btn-primary" >Adicionar Artista</button>
+				class="btn btn-primary">Adicionar Artista</button>
 
 		</form>
 	</div>
 
 
 </body>
+<!-- caminho para o angular -->
+<script src="materialize/js/angular.min.js"></script>
+<script src="materialize/js/controller.js"></script>
 <script type="text/javascript"
 	src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="materialize/js/materialize.min.js"></script>

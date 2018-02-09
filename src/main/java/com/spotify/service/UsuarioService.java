@@ -23,14 +23,5 @@ public class UsuarioService {
 		}
 		return null;
 	}
-	
-//	public Usuario logarUsuario(Usuario usuario) {
-//		Usuario usuario2 = usuarioRepository.findAllByEmailUsuario(usuario.getUsername());
-//		if(usuario2 != null && usuario2.getPassword().equals(usuario.getPassword())){
-//			return usuarioRepository.save(usuario2);
-//		}
-//		return null;
-//	}
-//	
 
 }

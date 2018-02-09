@@ -20,22 +20,8 @@
 <body>
 
 	<div class="cabecalho">
-		<div class="row">
-			<form class="col s12" method="post">
-				<div class="row">
-					<div id="areaPesquisa" class="input col s12">
-						<input id="pesquisa" type="text" class="browser-default" value=""
-							name="nomeArtista" required="" />
-						<button id="procuarArtista" type="submit"
-							class="waves-effect waves-teal btn-flutuante">
-							<i class="material-icons">search</i>
-						</button>
-						<a id="cadastroElogin"
-							class="waves-effect waves-light btn modal-trigger" href="/logout">Sair</a>
-					</div>
-				</div>
-			</form>
-		</div>
+		<a id="sair" class="waves-effect waves-light btn modal-trigger"
+			href="/logout">Sair</a>
 	</div>
 
 	<ul id="dropdown1" class="dropdown-content">
@@ -57,14 +43,12 @@
 		<form class="col s12" method="post">
 			<div class="input-field col s12">
 				<input type="text" class="validate" value="" name="nomePlayList"
-					required="required" /> <label data-error="wrong">Nome
-					PlayList</label>
+					required="required" /> <label
+					data-error="nome da playList invalido">Nome PlayList</label>
 			</div>
 			<button type="submit" class="btn btn-primary">Criar PlayList</button>
-
 		</form>
 	</div>
-
 
 	<table class="striped">
 		<tbody>
@@ -73,11 +57,13 @@
 					th:href="${(#mvc.url('PLC#detalhesPlayList').arg(0, playList.idPlayList)).build()}">
 						<span th:text="${playList.nomePlayList}"> </span>
 				</a></td>
+				<td><a id="deletar" class="waves-effect waves-light btn-small"
+					th:href="${(#mvc.url('PLC#deletaPlayList').arg(0, playList.idPlayList)).build()}">
+						<i class="material-icons">delete_forever</i>
+				</a></td>
 			</tr>
 		</tbody>
 	</table>
-
-
 
 </body>
 <script type="text/javascript"
