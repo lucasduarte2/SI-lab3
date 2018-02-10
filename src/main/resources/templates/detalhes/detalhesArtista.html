@@ -17,12 +17,13 @@
 <!-- link para usar os o css -->
 <link type="text/css" rel="stylesheet"
 	href="../materialize/css/estilo.css" />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
 </head>
 <body>
 
 	<div class="cabecalho">
-		<a id="sair"
-			class="waves-effect waves-light btn modal-trigger" href="/logout">Sair</a>
+		<a id="sair" class="waves-effect waves-light btn modal-trigger blue"
+			href="/logout">Sair</a>
 	</div>
 
 	<ul id="dropdown1" class="dropdown-content">
@@ -40,7 +41,7 @@
 		</div>
 	</nav>
 
-	<div class="card" th:each="artista : ${artista}">
+	<div class="card" id="cardDetalhesArtista" th:each="artista : ${artista}">
 		<div class="card-image waves-effect waves-block waves-light">
 			<img class="activator" th:src="${artista.linkDaImagem}" />
 		</div>
@@ -57,53 +58,82 @@
 				class="material-icons right">close</i>
 			</span>
 			<p>
-				Nota : <span th:text="${artista.classificacaoArtista}"></span>
+				Nota: <span th:text="${artista.classificacaoArtista}"></span>
 			</p>
 			<p>Ultima Musica Escutada:
 			<p>
 				<span th:text="${artista.ultimaMusicaEscutada}"></span>
 			</p>
 			</p>
-			<p>
-				Albuns : <span th:each="album :${artista.albuns}">
-					<p>
-						<span th:text="${album.nomeAlbum}"> </span>
-					</p>
-				</span>
-			</p>
 		</div>
 	</div>
-	<div id="classificacaoEUltimaMusicaArtista">
-		<div class="row">
-			<form class="col s12" method="post">
-				<div class="row">
-					<div class="input-field col s12">
-						<input type="text" class="validate" value=""
-							name="classificacaoArtista" /> <label data-error="wrong">Nota
-							Do Artista</label>
-					</div>
-				</div>
-				<div class="row">
-					<button type="submit" class="btn btn-primary">ADD</button>
-				</div>
-			</form>
-		</div>
 
-		<div class="row">
-			<form class="col s12" method="post">
-				<div class="row">
-					<div class="input-field col s12">
-						<input type="text" class="validate" value=""
-							name="ultimaMusicaEscutada" /> <label data-error="wrong">Ultima
-							Musica Escutada </label>
-					</div>
+	<div id="nota" class="modal">
+		<form class="col s12" method="post">
+			<div class="row">
+				<div class="input-field col s12">
+					<input type="text" class="validate" value=""
+						name="classificacaoArtista" /> <label data-error="wrong">Nota
+						Do Artista</label>
 				</div>
-				<div class="row">
-					<button type="submit" class="btn btn-primary">ADD</button>
-				</div>
-			</form>
-		</div>
+			</div>
+			<div class="row">
+				<button type="submit" class="btn btn-primary">ADD</button>
+			</div>
+		</form>
 	</div>
+
+	<div id="ultimaMusicaEscutada" class="modal">
+		<form class="col s12" method="post">
+			<div class="row">
+				<div class="input-field col s12">
+					<input type="text" class="validate" value=""
+						name="ultimaMusicaEscutada" /> <label data-error="wrong">Ultima
+						Musica Escutada </label>
+				</div>
+			</div>
+			<div class="row">
+				<button type="submit" class="btn btn-primary">ADD</button>
+			</div>
+		</form>
+	</div>
+	<div id="musicasEAlbunsArtistas">
+		<a class="waves-effect waves-light btn modal-trigger blue"
+			href="#musicaArtista"><i class="material-icons">music_note</i>Musicas</a>
+		<a class="waves-effect waves-light btn modal-trigger blue"
+			href="#albunsArtistas"><i class="material-icons">album</i>Albuns</a>
+		<a class="waves-effect waves-light btn modal-trigger blue" href="#nota">Nota
+		</a> 
+		<a class="waves-effect waves-light btn modal-trigger blue" 
+		href="#ultimaMusicaEscutada">Ultima Musica Escutada</a>
+
+	</div>
+
+	<!-- Modal Structure -->
+	<div id="musicaArtista" class="modal bottom-sheet">
+		<table class="striped"
+			th:each="artista : ${artista}">
+			<tbody th:each="album : ${artista.albuns}">
+				<tr id="musicaArtista" th:each="musica : ${album.musicas}">
+					<td><span th:text="${musica.nomeMusica}"></span><i class="material-icons">music_note</i></td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="modal-footer"></div>
+	</div>
+
+	<!-- Modal Structure -->
+	<div id="albunsArtistas" class="modal bottom-sheet">
+		<table class="striped" th:each="artista : ${artista}">
+			<tbody th:each="album : ${artista.albuns}">
+				<tr id="albunsArtista">
+					<td><span th:text="${album.nomeAlbum}"></span><i class="material-icons">album</i></td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="modal-footer"></div>
+	</div>
+
 
 
 </body>

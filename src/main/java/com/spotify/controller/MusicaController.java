@@ -12,7 +12,7 @@ import com.spotify.models.Musica;
 import com.spotify.service.AlbumService;
 
 @Controller
-public class AlbumController {
+public class MusicaController {
 	
 	@Autowired
 	private AlbumService albumService;

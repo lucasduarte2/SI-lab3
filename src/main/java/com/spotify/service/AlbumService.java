@@ -48,7 +48,7 @@ public class AlbumService {
 		artistaService.addAlbumAoArtista(novoAlbum, novaMusica.getArtista());
 		return novoAlbum;
 	}
-
+	
 	private Album addNovoAlbum(Album album) {
 		album.setEmailUsuario(retornaIdUsuario());
 		return albumRepository.save(album);

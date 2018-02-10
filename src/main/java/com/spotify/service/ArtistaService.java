@@ -87,7 +87,7 @@ public class ArtistaService {
 		List<Artista> artistasExistente = artistaRepository.findByEmailUsuario(retornaUserName());
 		Artista artista2 = null;
 		for (Artista artista3 : artistasExistente) {
-			if(artista3.getNomeArtista().equals(artista.getNomeArtista())){
+			if (artista3.getNomeArtista().equals(artista.getNomeArtista())) {
 				artista2 = artista3;
 			}
 		}
@@ -101,8 +101,8 @@ public class ArtistaService {
 		artistaDoUsuario.setAlbuns(albuns);
 		return artistaRepository.save(artistaDoUsuario);
 	}
-	
-	private Artista procurarArtista(String nomeArtista){
+
+	private Artista procurarArtista(String nomeArtista) {
 		List<Artista> artistas = artistaRepository.findAllByNomeArtistaIgnoreCaseContaining(nomeArtista);
 		Artista artistaDoUsuario = null;
 		for (Artista artista : artistas) {
@@ -112,13 +112,6 @@ public class ArtistaService {
 		}
 		return artistaDoUsuario;
 	}
-
-	// public Artista addMusicaAoArtista(Musica musica, String nomeArtista){
-	// Artista artista = artistaRepository.findByNomeArtista(nomeArtista);
-	// List<Musica> musicas = artista.getMusicas();
-	// musicas.add(musica);
-	// artista.setMusicas(musicas);
-	// return artistaRepository.save(artista);
-	// }
+	
 
 }

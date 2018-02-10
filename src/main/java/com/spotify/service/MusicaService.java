@@ -13,7 +13,7 @@ public class MusicaService {
 	
 	@Autowired
 	private MusicaRepository musicaRepository;
-	
+
 	public Musica procurarMusica(Musica musica, String userName){
 		List<Musica> musicas = musicaRepository.findByEmailUsuario(userName);
 		Musica musicaAchada = null;
@@ -36,4 +36,5 @@ public class MusicaService {
 		}
 		return musicaAchada;
 	}
+	
 }

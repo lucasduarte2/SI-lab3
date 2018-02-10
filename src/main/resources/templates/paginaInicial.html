@@ -31,7 +31,8 @@
 							<i class="material-icons">search</i>
 						</button>
 						<a id="cadastroElogin"
-							class="waves-effect waves-light btn modal-trigger" href="/logout">Sair</a>
+							class="waves-effect waves-light btn modal-trigger blue"
+							href="/logout">Sair</a>
 					</div>
 				</div>
 			</form>
@@ -53,21 +54,23 @@
 		</div>
 	</nav>
 
-	<table class="striped">
-		<tbody>
-			<tr th:each="artista : ${artistas}">
-				<td><a id="artistas"
-					th:href="${(#mvc.url('AC#detalhesArtista').arg(0, artista.id)).build()}">
-						<span th:text="${artista.nomeArtista}"> </span>
-				</a></td>
-				<td id="favorito"><a
-					th:href="${(#mvc.url('AC#favoritaArtista').arg(0, artista.id)).build()}">
-						<i class="material-icons" id="favorito"><span
-							th:text="${artista.favorito}"></span></i>
-				</a></td>
-			</tr>
-		</tbody>
-	</table>
+	<div class="card" id="cardPaginaInicial"
+		th:each="artista : ${artistas}">
+		<div class="card-image waves-effect waves-block waves-light">
+			<img class="responsive-img" th:src="${artista.linkDaImagem}" />
+		</div>
+		<div class="card-action">
+			<a id="artistas"
+				th:href="${(#mvc.url('AC#detalhesArtista').arg(0, artista.id)).build()}">
+				<span th:text="${artista.nomeArtista}"> </span>
+			</a> <a
+				th:href="${(#mvc.url('AC#favoritaArtista').arg(0, artista.id)).build()}">
+				<i class="material-icons" id="favorito"><span
+					th:text="${artista.favorito}"></span></i>
+			</a>
+		</div>
+	</div>
+
 
 </body>
 <script type="text/javascript"

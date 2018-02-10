@@ -84,16 +84,46 @@ h4 {
 	height: 40%;
 }
 
+tr#musicaArtista {
+	position: relative;
+	text-align: center;
+}
+
+}
+tr#albunsArtista {
+	position: relative;
+	text-align: center;
+}
+
+div#musicasEAlbunsArtistas {
+	display: inline-block;
+	position: absolute;
+	top: 30%;
+	left: 40%;
+}
+
 div#cadastro {
 	position: relative;
 	width: 40%;
 	height: 33px;
 }
 
-.card {
+.modal {
+	width: 30%;
+	height: 30%;
+}
+
+div#cardDetalhesArtista {
 	display: inline-block;
 	width: 30%;
 	height: 40%;
+}
+
+div#cardPaginaInicial{
+	display: inline-block;
+	left : 15%;
+	width: 15%;
+	height: 15%;
 }
 
 img {
@@ -103,18 +133,16 @@ img {
 	height: auto;
 }
 
+a#artistas{
+	color: black;
+}
+
 i#favorito {
 	color: red;
 }
 
-div#classificacaoEUltimaMusicaArtista {
-	display: inline-block;
-	position: relative;
-	left: 10%;
-}
-
 a#deletar {
-	position:relative;
+	position: relative;
 	left: 50%;
 	color: red;
 }
