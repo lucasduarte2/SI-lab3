@@ -22,7 +22,7 @@ public class ImplementsUserDetailsService implements UserDetailsService {
 	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
 		Usuario usuario = ur.findAllByEmailUsuario(email);
 		if(usuario == null){
-			throw new UsernameNotFoundException("Usuario não encontrado!");
+			throw new UsernameNotFoundException("Usuario nao encontrado!");
 		}
 		
 		return new User(usuario.getUsername(), usuario.getPassword(),true,true,true,true,usuario.getAuthorities());
