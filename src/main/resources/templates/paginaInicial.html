@@ -39,17 +39,14 @@
 		</div>
 	</div>
 
-	<ul id="dropdown1" class="dropdown-content">
-		<li><a href="/cadastroArtista">Artista</a></li>
-		<li><a href="/cadastrarMusica">Musica</a></li>
-	</ul>
+
 	<nav>
 		<div class="nav-wrapper">
 			<ul class="right hide-on-med-and-down">
 				<li><a href="/paginaInicial"><h4>Pagina Inicial</h4></a></li>
+				<li><a href="/cadastroArtista"><h4>Artista</h4></a></li>
+				<li><a href="/cadastrarMusica"><h4>Musica</h4></a></li>
 				<li><a href="/playList"><h4>PlayList</h4></a></li>
-				<li><a class="dropdown-button" data-activates="dropdown1"><h4>Cadastrar</h4>
-						<i class="material-icons right">arrow_drop_down</i></a></li>
 			</ul>
 		</div>
 	</nav>
@@ -57,7 +54,8 @@
 	<div class="card" id="cardPaginaInicial"
 		th:each="artista : ${artistas}">
 		<div class="card-image waves-effect waves-block waves-light">
-			<img class="responsive-img" th:src="${artista.linkDaImagem}" />
+			<img id="imagemArtista" class="responsive-img"
+				th:src="${artista.linkDaImagem}" />
 		</div>
 		<div class="card-action">
 			<a id="artistas"

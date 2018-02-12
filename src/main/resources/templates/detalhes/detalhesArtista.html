@@ -17,7 +17,8 @@
 <!-- link para usar os o css -->
 <link type="text/css" rel="stylesheet"
 	href="../materialize/css/estilo.css" />
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet" />
 </head>
 <body>
 
@@ -26,24 +27,22 @@
 			href="/logout">Sair</a>
 	</div>
 
-	<ul id="dropdown1" class="dropdown-content">
-		<li><a href="/cadastroArtista">Artista</a></li>
-		<li><a href="/cadastrarMusica">Musica</a></li>
-	</ul>
 	<nav>
 		<div class="nav-wrapper">
 			<ul class="right hide-on-med-and-down">
 				<li><a href="/paginaInicial"><h4>Pagina Inicial</h4></a></li>
+				<li><a href="/cadastroArtista"><h4>Artista</h4></a></li>
+				<li><a href="/cadastrarMusica"><h4>Musica</h4></a></li>
 				<li><a href="/playList"><h4>PlayList</h4></a></li>
-				<li><a class="dropdown-button" data-activates="dropdown1"><h4>Cadastrar</h4>
-						<i class="material-icons right">arrow_drop_down</i></a></li>
 			</ul>
 		</div>
 	</nav>
 
-	<div class="card" id="cardDetalhesArtista" th:each="artista : ${artista}">
+	<div class="card" id="cardDetalhesArtista"
+		th:each="artista : ${artista}">
 		<div class="card-image waves-effect waves-block waves-light">
-			<img class="activator" th:src="${artista.linkDaImagem}" />
+			<img id="imagemDetalhesArtista" class="activator"
+				th:src="${artista.linkDaImagem}" />
 		</div>
 		<div class="card-content">
 			<span id="font" class="card-title activator grey-text text-darken-4">
@@ -102,20 +101,20 @@
 			href="#musicaArtista"><i class="material-icons">music_note</i>Musicas</a>
 		<a class="waves-effect waves-light btn modal-trigger blue"
 			href="#albunsArtistas"><i class="material-icons">album</i>Albuns</a>
-		<a class="waves-effect waves-light btn modal-trigger blue" href="#nota">Nota
-		</a> 
-		<a class="waves-effect waves-light btn modal-trigger blue" 
-		href="#ultimaMusicaEscutada">Ultima Musica Escutada</a>
+		<a class="waves-effect waves-light btn modal-trigger blue"
+			href="#nota">Nota </a> <a
+			class="waves-effect waves-light btn modal-trigger blue"
+			href="#ultimaMusicaEscutada">Ultima Musica Escutada</a>
 
 	</div>
 
 	<!-- Modal Structure -->
 	<div id="musicaArtista" class="modal bottom-sheet">
-		<table class="striped"
-			th:each="artista : ${artista}">
+		<table class="striped" th:each="artista : ${artista}">
 			<tbody th:each="album : ${artista.albuns}">
 				<tr id="musicaArtista" th:each="musica : ${album.musicas}">
-					<td><span th:text="${musica.nomeMusica}"></span><i class="material-icons">music_note</i></td>
+					<td><span th:text="${musica.nomeMusica}"></span><i
+						class="material-icons">music_note</i></td>
 				</tr>
 			</tbody>
 		</table>
@@ -127,7 +126,8 @@
 		<table class="striped" th:each="artista : ${artista}">
 			<tbody th:each="album : ${artista.albuns}">
 				<tr id="albunsArtista">
-					<td><span th:text="${album.nomeAlbum}"></span><i class="material-icons">album</i></td>
+					<td><span th:text="${album.nomeAlbum}"></span><i
+						class="material-icons">album</i></td>
 				</tr>
 			</tbody>
 		</table>

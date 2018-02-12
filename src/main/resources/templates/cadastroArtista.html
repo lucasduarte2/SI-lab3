@@ -16,26 +16,20 @@
 <body>
 
 	<div class="cabecalho">
-		<a id="sair"
-			class="waves-effect waves-light btn modal-trigger blue" href="/logout">Sair</a>
+		<a id="sair" class="waves-effect waves-light btn modal-trigger blue"
+			href="/logout">Sair</a>
 	</div>
 
-	<ul id="dropdown1" class="dropdown-content">
-		<li><a href="/cadastroArtista">Artista</a></li>
-		<li><a href="/cadastrarMusica">Musica</a></li>
-	</ul>
 	<nav>
 		<div class="nav-wrapper">
 			<ul class="right hide-on-med-and-down">
 				<li><a href="/paginaInicial"><h4>Pagina Inicial</h4></a></li>
+				<li><a href="/cadastroArtista"><h4>Artista</h4></a></li>
+				<li><a href="/cadastrarMusica"><h4>Musica</h4></a></li>
 				<li><a href="/playList"><h4>PlayList</h4></a></li>
-				<li><a class="dropdown-button" data-activates="dropdown1"><h4>Cadastrar</h4>
-						<i class="material-icons right">arrow_drop_down</i></a></li>
 			</ul>
 		</div>
 	</nav>
-
-
 
 	<div class="row" id="cadastro">
 		<form class="col s12" method="post">
@@ -48,10 +42,11 @@
 				<input id="link" type="text" value="" name="linkDaImagem" /> <label>Link
 					Para a Imagem Do Artista</label>
 			</div>
-			<button type="submit" 
+			<button type="submit"
 				onclick="Materialize.toast('Artista Cadastrado Com Sucesso', 4000,'green rounded')"
 				class="btn btn-primary">Adicionar Artista</button>
 		</form>
+
 	</div>
 
 

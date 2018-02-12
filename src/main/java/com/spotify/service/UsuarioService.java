@@ -12,13 +12,13 @@ public class UsuarioService {
 	
 	@Autowired
 	private UsuarioRepository usuarioRepository;
-	private BCryptPasswordEncoder bcryptpsse = new BCryptPasswordEncoder();
+	//private BCryptPasswordEncoder bcryptpsse = new BCryptPasswordEncoder();
 	
 	public Usuario cadastroUsuario(Usuario novoUsuario) {
 		Usuario usuario = usuarioRepository.findAllByEmailUsuario(novoUsuario.getEmailUsuario());
-		String senhaCriptografada = bcryptpsse.encode(novoUsuario.getPassword());
+		//String senhaCriptografada = bcryptpsse.encode(novoUsuario.getPassword());
 		if(usuario == null){
-			novoUsuario.setSenhaUsuario(senhaCriptografada);
+			//novoUsuario.setSenhaUsuario(senhaCriptografada);
 			return usuarioRepository.save(novoUsuario);	
 		}
 		return null;

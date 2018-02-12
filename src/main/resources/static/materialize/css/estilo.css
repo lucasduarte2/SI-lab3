@@ -79,12 +79,17 @@ h4 {
 .striped {
 	position: relative;
 	left: 30%;
-	top: 10px;
+	top: 30px;
 	width: 40%;
 	height: 40%;
 }
 
 tr#musicaArtista {
+	position: relative;
+	text-align: center;
+}
+
+td {
 	position: relative;
 	text-align: center;
 }
@@ -104,8 +109,10 @@ div#musicasEAlbunsArtistas {
 
 div#cadastro {
 	position: relative;
+	top: 20px;
 	width: 40%;
 	height: 33px;
+	width: 40%;
 }
 
 .modal {
@@ -119,22 +126,29 @@ div#cardDetalhesArtista {
 	height: 40%;
 }
 
-div#cardPaginaInicial{
+div#cardPaginaInicial {
 	display: inline-block;
-	left : 15%;
-	width: 15%;
-	height: 15%;
+	left: 18%;
+	width: 12%;
+	height: 25%;
 }
 
-img {
+img#imagemArtista {
+	max-width: 200px;
+	max-height: 160px;
+	width: auto;
+	height: auto;
+}
+
+img#imagemDetalhesArtista {
 	max-width: 400px;
 	max-height: 400px;
 	width: auto;
 	height: auto;
 }
 
-a#artistas{
-	color: black;
+a#artistas {
+	color: blue;
 }
 
 i#favorito {
@@ -143,6 +157,6 @@ i#favorito {
 
 a#deletar {
 	position: relative;
-	left: 50%;
+	left: 30%;
 	color: red;
 }
