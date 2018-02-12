@@ -36,26 +36,37 @@ public class AlbumService {
 	}
 
 	public Album addMusicaEAlbum(Musica musica, Album album) {
-		Album albumExistente = albumRepository.findAllByNomeAlbum(album.getNomeAlbum());
-		if (albumExistente != null && albumExistente.getEmailUsuario().equals(retornaIdUsuario())) {
+		String usuario = retornaIdUsuario();
+		Album albumExistente = albumUsuario(album, usuario);
+		if (albumExistente != null ) {
 			Musica novaMusica = addMusica(musica, albumExistente);
 			addMusicaAoAlbum(novaMusica, album);
 			return albumExistente;
 		}
 
-		Album novoAlbum = addNovoAlbum(album);
+		Album novoAlbum = addNovoAlbum(album, usuario);
 		Musica novaMusica = addMusica(musica, novoAlbum);
 		artistaService.addAlbumAoArtista(novoAlbum, novaMusica.getArtista());
 		return novoAlbum;
 	}
 	
-	private Album addNovoAlbum(Album album) {
-		album.setEmailUsuario(retornaIdUsuario());
+	private Album addNovoAlbum(Album album, String usuario) {
+		album.setEmailUsuario(usuario);
 		return albumRepository.save(album);
+	}
+	
+	private Album albumUsuario(Album album, String usuario){
+		List<Album> albuns = albumRepository.findAllByEmailUsuario(usuario);
+		for (Album album2 : albuns) {
+			if(album.getNomeAlbum().equals(album2.getNomeAlbum())){
+				return album2;
+			}
+		}
+		return null;
 	}
 
 	private Album addMusicaAoAlbum(Musica musica, Album album) {
-		Album albumExistente = albumRepository.findAllByNomeAlbum(album.getNomeAlbum());
+		Album albumExistente = albumUsuario(album, retornaIdUsuario());
 		List<Musica> musicas = albumExistente.getMusicas();
 		musicas.add(musica);
 		albumExistente.setMusicas(musicas);
